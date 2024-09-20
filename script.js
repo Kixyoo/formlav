@@ -12,7 +12,7 @@ var UserStatus;
 var Default;
 (function (Default) {
     // Alterar Default.PIN para ser um array de senhas válidas
-    Default["PINS"] = ["2912", "1234", "5678"];
+    Default["PINS"] = ["2912", "2929", "1234"];
 })(Default || (Default = {}));
 
 var WeatherType;
