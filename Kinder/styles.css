@@ -1,0 +1,175 @@
+/* Estilos gerais do formulário */
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+}
+
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1em;
+    font-size: 0.8em;
+}
+
+#periodo {
+    border: 1px solid black; /* Borda menor e sólida */
+    padding: 2px; /* Reduz o espaço interno */
+    width: 150px; /* Define uma largura menor semelhante aos campos do cabeçalho */
+    font-size: 14px; /* Ajusta o tamanho da fonte */
+    box-sizing: border-box;
+}
+
+
+
+.header-content {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    text-align: center;
+}
+
+.logo-date {
+    margin: 10px 0; /* Ajuste o valor conforme necessário */
+}
+
+#data-emissao-display {
+    font-size: 16px;
+    color: #000000; /* Ajuste a cor conforme necessário */
+}
+
+.logo {
+    width: 160px; /* Ajuste o tamanho da logo conforme necessário */
+    height: auto;
+    margin-right: 20px; /* Espaço entre a logo e o título */
+}
+
+h1 {
+    flex: 1;
+    text-align: center;
+    margin: 0;
+    font-size: 1.5em;
+}
+
+.form-header {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    margin-left: auto;
+    font-size: 0.8em; /* Diminuir o tamanho da fonte */
+}
+
+.form-header label {
+    margin-bottom: 0.3em; /* Menor espaço entre rótulos */
+}
+
+.form-header input {
+    width: 150px; /* Ajusta a largura dos campos */
+    padding: 0.3em; /* Menor padding */
+    box-sizing: border-box;
+}
+
+.form-section {
+    margin-bottom: 1em;
+}
+
+.form-section label {
+    display: block;
+    margin-bottom: 0.5em;
+    font-weight: bold;
+}
+
+.form-section select, .form-section input, .form-section textarea {
+    width: 100%;
+    padding: 0.5em;
+    box-sizing: border-box;
+}
+
+textarea {
+    resize: vertical; /* Permite redimensionar verticalmente */
+}
+
+/* Estilos específicos para a seção de responsáveis */
+.responsaveis {
+    display: flex;
+    justify-content: space-between;
+}
+
+.responsaveis div {
+    flex: 1;
+    margin-right: 10px;
+}
+
+.responsaveis div:last-child {
+    margin-right: 0;
+}
+
+input[type="text"] {
+    width: 100%;
+}
+
+.checkbox-group {
+    display: flex;
+    gap: 5px; /* Espaçamento entre os checkboxes */
+}
+
+.checkbox-group input[type="checkbox"] {
+    width: 20px; /* Ajuste o tamanho do checkbox, se necessário */
+    height: 20px; /* Ajuste o tamanho do checkbox */
+}
+
+
+
+/* Estilo para o botão */
+button {
+    padding: 0.5em 1em;
+    font-size: 1em;
+    background-color: #079de3; /* Cor verde */
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #e44416; /* Cor verde mais escura ao passar o mouse */
+}
+
+/* Estilo para o campo Quantidade */
+.input-quantidade {
+    border: 1px solid #000000; /* Exemplo de cor vermelha para borda */
+    width: 80px;
+    padding: 5px;
+    font-size: 14px;
+}
+
+/* Estilo para o campo Observações */
+#observacoes {
+    border: 1px solid #000000; /* Exemplo de cor verde para borda */
+    padding: 5px;
+    font-size: 14px;
+}
+
+/* Estilo para os campos de Responsável pelas verificações */
+.responsaveis input {
+    border: 1px solid #000000; /* Exemplo de cor azul para borda */
+    padding: 5px;
+    font-size: 14px;
+}
+
+
+/* Estilos específicos para impressão */
+@media print {
+    button {
+        display: none; /* Oculta o botão ao imprimir */
+    }
+
+    #setor-responsavel, 
+    select {
+        -webkit-appearance: none; /* Oculta a seta no Chrome e Safari */
+        -moz-appearance: none; /* Oculta a seta no Firefox */
+        appearance: none; /* Oculta a seta em navegadores que suportam */
+        pointer-events: none; /* Impede que o usuário altere a seleção */
+
+    }
+}

@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="favicon.ico" type="image/vnd.microsoft.icon">
+    <title>Check List Diário de Limpeza</title>
+    <link rel="stylesheet" href="styles.css">
+    <script>
+        // Função para definir a data atual no campo "Data Emissão"
+        function setCurrentDate() {
+            const today = new Date();
+            const day = String(today.getDate()).padStart(2, '0');
+            const month = String(today.getMonth() + 1).padStart(2, '0'); // Mês começa do zero
+            const year = today.getFullYear();
+            const currentDate = `${day}/${month}/${year}`;
+            document.getElementById('data-emissao').value = currentDate;
+        }
+
+        // Função para adicionar uma nova atividade
+        function adicionarAtividade() {
+            const tableBody = document.getElementById('checklistTableBody');
+            
+            // Criar uma nova linha
+            const newRow = document.createElement('tr');
+
+            // Coluna para selecionar a atividade
+            const atividadeCell = document.createElement('td');
+            const atividadeSelect = document.createElement('select');
+            atividadeSelect.name = 'atividade_select[]';
+            atividadeSelect.className = 'atividade-select'; // Adiciona a classe para o campo Atividade
+            
+            // Opções para o select
+            const options = [
+                '', 
+                'Filtro Palloni', 
+                'Peneira Granela',
+                'STAMPS', 
+                'Robo',
+                'Carrinho robo',
+                'Vassoio',
+                'bomba de vacuo',
+                'Taparelli',
+                'Pallet vazio',
+                'Filtro Magnético',
+                'Outra atividade'
+            ];
+            options.forEach(opt => {
+                const option = document.createElement('option');
+                option.value = opt;
+                option.textContent = opt;
+                atividadeSelect.appendChild(option);
+            });
+            atividadeCell.appendChild(atividadeSelect);
+            newRow.appendChild(atividadeCell);
+
+            // Coluna para checkboxes "Realizada" com 14 checkboxes
+            const realizadaCell = document.createElement('td');
+            const realizadaDiv = document.createElement('div');
+            realizadaDiv.classList.add('checkbox-group');
+            realizadaDiv.classList.add('realizada-checkboxes'); // Adiciona a classe para checkboxes Realizada
+
+            // Adiciona 14 checkboxes
+            for (let i = 1; i <= 14; i++) {
+                const realizadaCheckbox = document.createElement('input');
+                realizadaCheckbox.type = 'checkbox';
+                realizadaCheckbox.name = `realizada_${i}[]`;
+                realizadaDiv.appendChild(realizadaCheckbox);
+            }
+            realizadaCell.appendChild(realizadaDiv);
+            newRow.appendChild(realizadaCell);
+
+            // Coluna para quantidade
+            const quantidadeCell = document.createElement('td');
+            const quantidadeInput = document.createElement('input');
+            quantidadeInput.type = 'number';
+            quantidadeInput.name = 'quantidade[]';
+            quantidadeInput.min = '0';
+            quantidadeInput.placeholder = '';
+            quantidadeInput.className = 'quantity-input'; // Adiciona a classe para o campo quantidade
+            quantidadeCell.appendChild(quantidadeInput);
+            newRow.appendChild(quantidadeCell);
+
+            // Adiciona a nova linha à tabela
+            tableBody.appendChild(newRow);
+        }
+
+        // Chama as funções ao carregar a página
+        window.onload = function() {
+            setCurrentDate();
+        };
+
+        // Função para imprimir o formulário
+        function imprimirForm() {
+            window.print();
+        }
+    </script>
+    <style>
+        /* Estilo para o campo Período */
+        #periodo {
+            border: 1px solid black; /* Borda menor e sólida */
+            padding: 4px; /* Reduz o espaço interno */
+            width: 150px; /* Define uma largura menor semelhante aos campos do cabeçalho */
+            font-size: 14px; /* Ajusta o tamanho da fonte */
+            box-sizing: border-box;
+        }
+
+        /* Estilo para os campos Atividade, Realizada e Quantidade */
+        .atividade-select,
+        .realizada-checkboxes input[type="checkbox"],
+        .quantity-input {
+            border: 1px solid black; /* Define a borda preta para os campos Atividade e Quantidade */
+        }
+
+        /* Estilo para o campo Atividade */
+        .atividade-select {
+            width: 200px; /* Largura aumentada */
+            padding: 4px; /* Padding aumentado */
+            font-size: 16px; /* Tamanho da fonte aumentado */
+        }
+
+        /* Estilo para os campos Código, Revisão e Data Emissão */
+        .form-header input[type="text"] {
+            border: 1px solid black; /* Define a borda preta para os campos Código, Revisão e Data Emissão */
+            padding: 5px; /* Espaçamento interno */
+            box-sizing: border-box;
+        }
+
+        /* Estilo específico para o campo Quantidade */
+        .quantity-input {
+            padding: 5px; /* Espaçamento interno */
+            box-sizing: border-box;
+        }
+
+        .form-section textarea {
+            border: 1px solid black; /* Define a borda preta para o campo Observações */
+        }
+
+        .form-section input[type="text"] {
+            border: 1px solid black; /* Define a borda preta para os campos Responsável pelas verificações */
+        }
+
+        .checkbox-group {
+            display: flex;
+            gap: 5px; /* Espaçamento entre os checkboxes */
+        }
+
+        .checkbox-group input[type="checkbox"] {
+            width: 20px; /* Ajuste o tamanho do checkbox */
+            height: 20px; /* Ajuste o tamanho do checkbox */
+        }
+
+        /* Estilo para o título h1 */
+        header h1 {
+            text-align: center; /* Centraliza o texto */
+        }
+
+        header h1 {
+    text-align: center; /* Centraliza o texto */
+    font-size: 20px; /* Aumenta o tamanho da fonte */
+    font-weight: bold; /* Deixa o texto em negrito */
+    margin: 20px 0; /* Define margem superior e inferior */
+    line-height: 1.5; /* Ajusta o espaçamento entre linhas */
+}
+
+
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <img src="https://www.kinder.com/cz/sites/kinder_cz/files/2022-01/logo_kinder_chocolate.png?t=1722943443" alt="Logo" class="logo">
+            <h1>CHECK LIST DIÁRIO DE LIMPEZA/HIGIENIZAÇÃO</h1>
+            <div class="form-header">
+                <label for="codigo">Código:</label>
+                <input type="text" id="codigo" value="FO 003 LV" readonly>
+
+                <label for="revisao">Revisão:</label>
+                <input type="text" id="revisao" value="73829" readonly>
+
+                <label for="data-emissao">Data Emissão:</label>
+                <input type="text" id="data-emissao" readonly>
+            </div>
+        </div>
+    </header>
+
+    <form id="checklistForm">
+        <div class="form-section">
+            <label for="periodo">Data:</label>
+            <input type="text" id="periodo" name="periodo" placeholder="_____/______/______" maxlength="10" required>
+        </div>
+
+        <div class="form-section">
+            <label for="setor-responsavel">Setor Responsável:</label>
+            <select id="setor-responsavel" name="setor_responsavel" required>
+                <option value="" disabled selected></option>
+                <option value="setor1">Lavatório Rocher</option>
+                <option value="setor2">Lavatório Nutella</option>
+                <option value="setor3">Lavatório Kinder</option>
+                <option value="setor4">Lavatório OVO</option>
+            </select>
+        </div>
+
+        <table id="checklistTable">
+            <thead>
+                <tr>
+                    <th>ATIVIDADE</th>
+                    <th></th>
+                    <th>QUANTIDADE</th>
+                </tr>
+            </thead>
+            <tbody id="checklistTableBody">
+                <tr>
+                    <td>
+                        <select name="atividade_select[]" class="atividade-select">
+                            <option value="Limpeza do piso e ralo"></option>
+                            <option value="Filtro Palloni">Filtro Palloni</option>
+                            <option value="Peneira Granela">Peneira Granela</option>
+                            <option value="Robo">Robo</option>
+                            <option value="Carrinho robo">Carrinho robo</option>
+                            <option value="bomba de vacuo">bomba de vacuo</option>
+                            <option value="Taparelli">Taparelli</option>
+                            <option value="Outra atividade">Pallet vazio</option>
+                            <option value="Outra atividade">Filtro Magnético</option>
+                            <option value="Outra atividade">Outra atividade</option>
+                        </select>
+                    </td>
+                    <td>
+                        <div class="checkbox-group realizada-checkboxes">
+                            <!-- 14 Checkboxes for "Realizada" -->
+                            <input type="checkbox" name="realizada_1[]">
+                            <input type="checkbox" name="realizada_2[]">
+                            <input type="checkbox" name="realizada_3[]">
+                            <input type="checkbox" name="realizada_4[]">
+                            <input type="checkbox" name="realizada_5[]">
+                            <input type="checkbox" name="realizada_6[]">
+                            <input type="checkbox" name="realizada_7[]">
+                            <input type="checkbox" name="realizada_8[]">
+                            <input type="checkbox" name="realizada_9[]">
+                            <input type="checkbox" name="realizada_10[]">
+                            <input type="checkbox" name="realizada_11[]">
+                            <input type="checkbox" name="realizada_12[]">
+                            <input type="checkbox" name="realizada_13[]">
+                            <input type="checkbox" name="realizada_14[]">
+                        </div>
+                    </td>
+                    <td><input type="number" name="quantidade[]" min="0" placeholder="" class="quantity-input"></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <button type="button" onclick="adicionarAtividade()">Adicionar Atividade</button>
+
+        <div class="form-section">
+            <label for="observacoes">Observação:</label>
+            <textarea id="observacoes" name="observacoes" rows="4" placeholder=""></textarea>
+        </div>
+
+        <div class="form-section">
+            <label>Responsável pelo Lavatório:</label>
+            <div class="responsaveis">
+                <div>
+                    <label for="responsavel_turno_a">Turno A:</label>
+                    <input type="text" id="responsavel_turno_a" name="responsavel_turno_a">
+                </div>
+                <div>
+                    <label for="responsavel_turno_b">Turno B:</label>
+                    <input type="text" id="responsavel_turno_b" name="responsavel_turno_b">
+                </div>
+                <div>
+                    <label for="responsavel_turno_c">Turno C:</label>
+                    <input type="text" id="responsavel_turno_c" name="responsavel_turno_c">
+                </div>
+            </div>
+        </div>
+
+        <button type="button" onclick="imprimirForm()">Imprimir</button>
+    </form>
+</body>
+</html>
