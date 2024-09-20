@@ -346,25 +346,25 @@ const Restaurants = () => {
                 id: 1,
                 image: "https://www.ferrero.com/br/sites/ferrero_br/files/2023-06/ferrero_rocher.jpg?t=1726145784",
                 title: "Ferrero Rocher",
-                link: "file:///C:/Users/rafa_/OneDrive/%C3%81rea%20de%20Trabalho/forms/Tests/rocher/Rocher.html"
+                link: "https://kixyoo.github.io/formlav/rocher/Rocher.html"
             }, {
                 desc: "Ferrero",
                 id: 2,
                 image: "https://www.ferrero.com/br/sites/ferrero_br/files/2023-06/nutella.jpg?t=1726145784",
                 title: "Nutella",
-                link: "file:///C:/Users/rafa_/OneDrive/%C3%81rea%20de%20Trabalho/forms/Tests/Nutella/Nutella.html"
+                link: "https://kixyoo.github.io/formlav/Nutella/Nutella.html"
             }, {
                 desc: "Ferrero",
                 id: 3,
                 image: "https://www.ferrero.com/br/sites/ferrero_br/files/2023-06/kinder.jpg?t=1726145784",
                 title: "Kinder Chocolate",
-                link: "file:///C:/Users/rafa_/OneDrive/%C3%81rea%20de%20Trabalho/forms/Tests/Kinder/kinder.html"
+                link: "https://kixyoo.github.io/formlav/Kinder/kinder.html"
             }, {
                 desc: "Ferrero",
                 id: 4,
                 image: "https://www.ferrero.com/br/sites/ferrero_br/files/2023-06/tic_tac.jpg?t=1726145784",
                 title: "Tic Tac",
-                link: "file:///C:/Users/rafa_/OneDrive/%C3%81rea%20de%20Trabalho/forms/Tests/ovo/Ovo.html"
+                link: "https://kixyoo.github.io/formlav/ovo/Ovo.html"
             }].map((restaurant) => {
             const styles = {
                 backgroundImage: `url(${restaurant.image})`
