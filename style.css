@@ -145,7 +145,10 @@ body span {
   display: none;
 }
 
-
+/* Ocultar news */
+#tools-section {
+  display: none;
+}
 
 
 #app #app-loading-icon {
